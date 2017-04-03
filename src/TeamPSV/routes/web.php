@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+/**
+ * Putanje kojima ima pristup samo administrator
+ *
+ */
+Route::get('/admin-panel', 'AdminController@adminPanel');
+Route::get('/user/delete/{user}', 'AdminController@deleteUser');

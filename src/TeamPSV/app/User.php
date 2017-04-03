@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'role-id', 'sur-name', 'email', 'password',
+        'name', 'role-id', 'surname', 'email', 'password',
     ];
 
     /**
@@ -29,5 +29,11 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo('App\Role', 'role-id');
+    }
+
+    public function isAdmin(){
+        $role = $this->role->type;
+
+        return $role === 'admin';
     }
 }

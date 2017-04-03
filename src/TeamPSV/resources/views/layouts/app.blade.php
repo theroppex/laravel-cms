@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- FONT AWESOME -->
+    <script src="https://use.fontawesome.com/22792a4a64.js"></script>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -43,7 +46,31 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li>
+                            <a href="/home">Home</a>
+                        </li>
+                        @if(\Illuminate\Support\Facades\Auth::check())
+                            @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
+                                <li>
+                                    <a href="/admin-panel">Admin Panel</a>
+                                </li>
+                            @endif
+                        @endif
+                        <li>
+                            <a href="#">Video Tutorials</a>
+                        </li>
+                        <li>
+                            <a href="#">Text Tutorials</a>
+                        </li>
+                        <li>
+                            <a href="#">SUBSCRIBE</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
