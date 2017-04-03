@@ -8,9 +8,9 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    OVO JE POCETNA STRANICA NA KOJU CE DOLAZITI KORISNIK NAKON LOGOVANJA
+                    OVO JE POCETNA STRANICA NA KOJU CE DOLAZITI KORISNIK NAKON LOGOVANJA <br>
 
-                    You are logged in!
+                    You are logged in!<br>
 
                     Your Role is: {{\Illuminate\Support\Facades\Auth::user()->role->type}}
                 </div>
