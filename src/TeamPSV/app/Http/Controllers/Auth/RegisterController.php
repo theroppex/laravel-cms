@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,6 +29,13 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
+    /**
+     * Prikazuje koja je osnovna rola novog korisnika
+     *
+     * @var string
+     */
+    protected $defaultUserRole = 'user';
 
     /**
      * Create a new controller instance.
@@ -63,10 +71,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $roleId = Role::where('type', $this->defaultUserRole)->get()->first()->id;
+
         return User::create([
             'name' => $data['name'],
             'sur-name' => $data['sur-name'],
             'email' => $data['email'],
+            'role-id' => $roleId,
             'password' => bcrypt($data['password']),
         ]);
     }
