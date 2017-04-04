@@ -79,7 +79,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    OVO JE POCETNA STRANA - IZGLED ISKOPIRATI IZ PORTOTIPA
+                    Welcome<br>
+                    PSV
                 </div>
             </div>
         </div>
