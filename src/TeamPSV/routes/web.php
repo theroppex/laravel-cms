@@ -25,3 +25,6 @@ Route::get('/home', 'HomeController@index');
  */
 Route::get('/admin-panel', 'AdminController@adminPanel');
 Route::get('/user/delete/{user}', 'AdminController@deleteUser');
+
+
+Route::get('/createtext','AutorController@getTextForm');
