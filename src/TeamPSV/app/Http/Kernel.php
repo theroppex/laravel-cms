@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         //Dodati middleware
 
         'admin' => \App\Http\Middleware\Admin::class,
+        'banned' => \App\Http\Middleware\UserBannedMiddleware::class,
     ];
 }

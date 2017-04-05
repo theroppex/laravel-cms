@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admin',
                 'surname' => 'Admin',
                 'email' => 'admin@admin.com',
+                'banned' => false,
                 'role-id' => 1,
                 'password' => bcrypt(env('ADMIN_PASS')),
             ]

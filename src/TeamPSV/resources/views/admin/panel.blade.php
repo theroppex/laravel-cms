@@ -23,15 +23,16 @@
                                         <th>Name</th>
                                         <th>Surname</th>
                                         <th>Email</th>
+                                        <th>Ban</th>
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($users as $user)
                                         <tr>
-                                            <td>
+                                            <th>
                                                 {{$user->id}}
-                                            </td>
+                                            </th>
                                             <td>
                                                 {{$user->name}}
                                             </td>
@@ -41,8 +42,17 @@
                                             <td>
                                                 {{$user->email}}
                                             </td>
+                                            <td>
+                                                @if(!$user->isAdmin())
+                                                    @if($user->isBanned())
+                                                        <a href="/user/unban/{{$user->id}}" class="btn btn-success">Unban</a>
+                                                    @else
+                                                        <a href="/user/ban/{{$user->id}}" class="btn btn-danger">Ban</a>
+                                                    @endif
+                                                @endif
+                                            </td>
                                             <td style="text-align: center">
-                                                @if(!\App\User::find($user->id)->isAdmin())
+                                                @if(!$user->isAdmin())
                                                     <a href="/user/delete/{{$user->id}}" ><i class="fa fa-trash" style="color: red" aria-hidden="true"></i></a>
                                                 @endif
                                             </td>

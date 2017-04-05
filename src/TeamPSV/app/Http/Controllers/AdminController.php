@@ -23,13 +23,41 @@ class AdminController extends Controller
     }
 
     /**
-     * Deletes user
+     * Deletes user if user is not an admin
      *
      * @param User $user
      */
     public function deleteUser(User $user){
         if($user && !$user->isAdmin()){
             $user->delete();
+        }
+        return redirect('admin-panel');
+    }
+
+    /**
+     * Banuje korisnika ukoliko korisnik nije admin
+     *
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function banUser(User $user){
+        if($user && !$user->isAdmin()){
+            $user->banned = true;
+            $user->save();
+        }
+        return redirect('admin-panel');
+    }
+
+    /**
+     * Unbanuje korsinika ukoliko korisnik nije admin
+     *
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function unbanUser(User $user){
+        if($user && !$user->isAdmin()){
+            $user->banned = false;
+            $user->save();
         }
         return redirect('admin-panel');
     }

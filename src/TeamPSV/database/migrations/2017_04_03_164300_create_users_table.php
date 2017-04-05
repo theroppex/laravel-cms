@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('banned');
             $table->integer('role-id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
