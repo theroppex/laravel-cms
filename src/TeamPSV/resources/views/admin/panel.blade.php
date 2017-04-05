@@ -54,6 +54,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                Text Post
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Ovde ce ici textualni postovi koje ce admin moci da kontrolise
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
