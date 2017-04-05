@@ -23,6 +23,7 @@
                                         <th>Name</th>
                                         <th>Surname</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Ban</th>
                                         <th>Delete</th>
                                     </tr>
@@ -41,6 +42,9 @@
                                             </td>
                                             <td>
                                                 {{$user->email}}
+                                            </td>
+                                            <td>
+                                                {{$user->role->type}}
                                             </td>
                                             <td>
                                                 @if(!$user->isAdmin())
