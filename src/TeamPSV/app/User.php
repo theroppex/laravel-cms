@@ -37,6 +37,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Vraca sve tekstualne postove koje ima korisnik
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function textPosts()
+    {
+        return $this->hasMany('App\TextPost');
+    }
+
+    /**
      * Funkcija provera da li je korisnik admin
      *
      * @return bool
