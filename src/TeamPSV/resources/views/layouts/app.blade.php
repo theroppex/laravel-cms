@@ -53,14 +53,6 @@
                         <li>
                             <a href="/home">Home</a>
                         </li>
-                        @if(\Illuminate\Support\Facades\Auth::check())
-                            @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
-                                <li>
-                                    <a href="/admin-panel">Admin Panel</a>
-                                </li>
-                            @endif
-                        @endif
-                        <li><a href="/createtext">Create Text Tutorial</a></li>
 
                         <li>
                             <a href="#">Video Tutorials</a>
@@ -92,6 +84,18 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    @if(\Illuminate\Support\Facades\Auth::check())
+                                        @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
+                                            <li>
+                                                <a href="/admin-panel">Admin Panel</a>
+                                            </li>
+                                        @endif
+                                    @endif
+
+                                    <li>
+                                        <a href="/createtext">Create Text Tutorial</a>
+                                    </li>
+                                        
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
