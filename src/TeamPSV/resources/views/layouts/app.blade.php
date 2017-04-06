@@ -95,7 +95,7 @@
                                     <li>
                                         <a href="/createtext">Create Text Tutorial</a>
                                     </li>
-                                        
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

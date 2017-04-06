@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -59,6 +60,31 @@ class AdminController extends Controller
             $user->banned = false;
             $user->save();
         }
+        return redirect('admin-panel');
+    }
+
+
+    /**
+     *Vraca stranicu na kojoj se dituje rola za korisnika :)
+     *
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getRole(User $user){
+        $roles = Role::all();
+        return view('user.editrole', ['user' => $user, 'roles' => $roles]);
+    }
+
+    /**
+     * Updejtuje rolu datog korisnika :)
+     *
+     * @param User $user
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function editRole(User $user, Request $request){
+        $roleId = $request->get('type');
+        $user->update(['role-id' => $roleId]);
         return redirect('admin-panel');
     }
 }

@@ -24,6 +24,7 @@
                                         <th>Surname</th>
                                         <th>Email</th>
                                         <th>Role</th>
+                                        <th>Edit Role</th>
                                         <th>Ban</th>
                                         <th>Delete</th>
                                     </tr>
@@ -48,10 +49,15 @@
                                             </td>
                                             <td>
                                                 @if(!$user->isAdmin())
+                                                    <a href="/user/role/{{$user->id}}" class="btn btn-sm btn-default">Edit</a>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if(!$user->isAdmin())
                                                     @if($user->isBanned())
-                                                        <a href="/user/unban/{{$user->id}}" class="btn btn-success">Unban</a>
+                                                        <a href="/user/unban/{{$user->id}}" class="btn btn-sm btn-success">Unban</a>
                                                     @else
-                                                        <a href="/user/ban/{{$user->id}}" class="btn btn-danger">Ban</a>
+                                                        <a href="/user/ban/{{$user->id}}" class="btn btn-sm btn-danger">Ban</a>
                                                     @endif
                                                 @endif
                                             </td>

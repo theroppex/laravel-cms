@@ -27,8 +27,13 @@ Route::get('/admin-panel', 'AdminController@adminPanel');
 Route::get('/user/delete/{user}', 'AdminController@deleteUser');
 Route::get('/user/ban/{user}', 'AdminController@banUser');
 Route::get('/user/unban/{user}', 'AdminController@unbanUser');
+Route::get('user/role/{user}', 'AdminController@getRole');
+Route::post('user/role/edit/{user}', 'AdminController@editRole');
 
-
+/**
+ * Putanje za text
+ *
+ */
 Route::get('/createtext','AutorController@getTextForm');
 
 
