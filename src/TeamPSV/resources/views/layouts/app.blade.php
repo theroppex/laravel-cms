@@ -8,6 +8,10 @@
     <!-- FONT AWESOME -->
     <script src="https://use.fontawesome.com/22792a4a64.js"></script>
 
+    <!-- TinyMCE -->
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
