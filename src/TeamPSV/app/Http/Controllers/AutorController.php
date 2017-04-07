@@ -15,23 +15,29 @@ class AutorController extends Controller
         $this->middleware('banned');
     }
 
+    /**
+     * Funkcija vraca pogled sa formom za unos text posta
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getTextForm()
     {
         return view("text.form");
     }
 
 
+    /**
+     * Funkcija kreira novi text post
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function uploadText(Request $request){
 
         $this->validate($request, [
-
             'title' => 'required|max:20',
             'description' => 'required|max:50',
             'body' => 'required'
-
-
-
-
         ]);
 
         $idUser = Auth::user()->id;
@@ -49,7 +55,4 @@ class AutorController extends Controller
 
        return redirect()->back();
     }
-
-
-
 }
