@@ -36,6 +36,8 @@ Route::post('user/role/edit/{user}', 'AdminController@editRole');
  */
 Route::get('/createtext','AutorController@getTextForm');
 
+Route::post('/create-post','AutorController@uploadText');
+
 
 /**
  * ERROR PUTANJE

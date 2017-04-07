@@ -3,6 +3,21 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+
+
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
+
+
             <form action="/create-post" method="post" enctype="multipart/form-data">
 
                 {!! csrf_field() !!}
@@ -19,8 +34,8 @@
 
                 <div class="form-group">
                     <label for="type">Type</label> <br/>
-                    <label class="radio-inline"><input type="radio" name="type" checked>Free</label>
-                    <label class="radio-inline"><input type="radio" name="type">Paid</label>
+                    <label class="radio-inline"><input type="radio" name="type" value="free" checked>Free</label>
+                    <label class="radio-inline"><input type="radio" name="type" value="paid">Paid</label>
                 </div>
 
                 <div class="form-group">

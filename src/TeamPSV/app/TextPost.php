@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class TextPost extends Model
 {
 
+    protected $fillable = ['user-id','title','description','type','body'];
+
     /**
      * Veza koja vraca usera kojem dati text post pirpada
      *
@@ -15,4 +17,9 @@ class TextPost extends Model
     public function user(){
         return $this->belongsTo('App\User', 'user-id');
     }
+
+
+
+
+
 }
