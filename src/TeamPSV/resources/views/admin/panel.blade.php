@@ -78,13 +78,36 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                Text Post
+                                Text Posts
                             </a>
                         </h4>
                     </div>
                     <div id="collapse2" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Ovde ce ici textualni postovi koje ce admin moci da kontrolise
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($posts as $post)
+                                    <tr>
+                                        <th>
+                                            {{$post->id}}
+                                        </th>
+                                        <th>
+                                            {{$post->title}}
+                                        </th>
+                                        <th>
+                                            {{$post->user->name}}
+                                        </th>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
