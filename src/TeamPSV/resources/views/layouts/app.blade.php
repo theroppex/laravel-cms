@@ -10,7 +10,19 @@
 
     <!-- TinyMCE -->
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
+    <script>tinymce.init({
+            selector: 'textarea',
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code',
+                'textcolor',
+            ],
+            toolbar: 'undo redo | insert | styleselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: '//www.tinymce.com/css/codepen.min.css'
+        });</script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,6 +31,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        body{
+            background: #f7fafc !important;
+        }
+    </style>
 
     <!-- Scripts -->
     <script>
@@ -58,7 +76,7 @@
                             <a href="#">Video Tutorials</a>
                         </li>
                         <li>
-                            <a href="#">Text Tutorials</a>
+                            <a href="/text-tutorials">Text Tutorials</a>
                         </li>
                         <li>
                             <a href="#">SUBSCRIBE</a>
