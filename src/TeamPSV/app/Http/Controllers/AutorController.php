@@ -35,9 +35,9 @@ class AutorController extends Controller
     public function uploadText(Request $request){
 
         $this->validate($request, [
-            'title' => 'required|max:20',
-            'description' => 'required|max:50',
-            'body' => 'required'
+            'title' => 'required|max:140|min:30',
+            'description' => 'required|max:180|min:30',
+            'body' => 'required',
         ]);
 
         $idUser = Auth::user()->id;

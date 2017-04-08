@@ -17,9 +17,4 @@ class TextPost extends Model
     public function user(){
         return $this->belongsTo('App\User', 'user-id');
     }
-
-
-
-
-
 }

@@ -35,8 +35,10 @@ Route::post('user/role/edit/{user}', 'AdminController@editRole');
  *
  */
 Route::get('/createtext','AutorController@getTextForm');
-
 Route::post('/create-post','AutorController@uploadText');
+Route::get('/text-tutorials', 'TextTutorialsController@getTextTutorials');
+Route::get('/text-post/free/{post}', 'TextTutorialsController@getFreePost');
+Route::get('/text-post/paid/{post}', 'TextTutorialsController@getPaidPost');
 
 
 /**
