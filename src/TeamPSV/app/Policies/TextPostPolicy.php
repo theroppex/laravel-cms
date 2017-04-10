@@ -30,7 +30,7 @@ class TextPostPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->isAdmin() || $user->role->type === 'autor';
     }
 
     /**
