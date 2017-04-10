@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\TextPost;
@@ -22,7 +23,8 @@ class AutorController extends Controller
      */
     public function getTextForm()
     {
-        return view("text.form");
+        $cats = Category::all();
+        return view("text.form", ['cats' => $cats]);
     }
 
 
@@ -44,13 +46,15 @@ class AutorController extends Controller
         $title = $request->title;
         $description = $request->description;
         $body = $request->body;
+        $catId = $request->get('cat');
 
        TextPost::create([
            'user-id' => $idUser,
            'title' => $title,
            'description' => $description,
            'body' => $body,
-           'type' => $request->get('type')
+           'type' => $request->get('type'),
+           'cat-id' => $catId,
        ]);
 
        return redirect()->back();

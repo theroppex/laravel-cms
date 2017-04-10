@@ -39,6 +39,8 @@ Route::post('/create-post','AutorController@uploadText');
 Route::get('/text-tutorials', 'TextTutorialsController@getTextTutorials');
 Route::get('/text-post/free/{post}', 'TextTutorialsController@getFreePost');
 Route::get('/text-post/paid/{post}', 'TextTutorialsController@getPaidPost');
+Route::get('/text-posts/type/free', 'TextTutorialsController@getAllFreePosts');
+Route::get('/text-posts/type/paid', 'TextTutorialsController@getAllPaidPosts');
 
 
 /**

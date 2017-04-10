@@ -33,6 +33,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="cat">Select category:</label>
+                    <select class="form-control" id="cat" name="cat">
+                        @foreach($cats as $cat)
+                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="type">Type</label> <br/>
                     <label class="radio-inline"><input type="radio" name="type" value="free" checked>Free</label>
                     <label class="radio-inline"><input type="radio" name="type" value="paid">Paid</label>

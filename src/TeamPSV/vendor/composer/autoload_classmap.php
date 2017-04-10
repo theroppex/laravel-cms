@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -17,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\ErrorController' => $baseDir . '/app/Http/Controllers/ErrorController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\TextTutorialsController' => $baseDir . '/app/Http/Controllers/TextTutorialsController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Admin' => $baseDir . '/app/Http/Middleware/Admin.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -35,6 +37,8 @@ return array(
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+    'CategoryTableSeeder' => $baseDir . '/database/seeds/CategoryTableSeeder.php',
+    'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_04_10_094330_create_categories_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2017_04_03_164235_create_roles_table.php',
     'CreateTextPostsTable' => $baseDir . '/database/migrations/2017_04_06_151201_create_text_posts_table.php',
@@ -644,10 +648,12 @@ return array(
     'Illuminate\\Console\\GeneratorCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Console/GeneratorCommand.php',
     'Illuminate\\Console\\OutputStyle' => $vendorDir . '/laravel/framework/src/Illuminate/Console/OutputStyle.php',
     'Illuminate\\Console\\Parser' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Parser.php',
+    'Illuminate\\Console\\Scheduling\\CacheMutex' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/CacheMutex.php',
     'Illuminate\\Console\\Scheduling\\CallbackEvent' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/CallbackEvent.php',
     'Illuminate\\Console\\Scheduling\\CommandBuilder' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/CommandBuilder.php',
     'Illuminate\\Console\\Scheduling\\Event' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/Event.php',
     'Illuminate\\Console\\Scheduling\\ManagesFrequencies' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/ManagesFrequencies.php',
+    'Illuminate\\Console\\Scheduling\\Mutex' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/Mutex.php',
     'Illuminate\\Console\\Scheduling\\Schedule' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/Schedule.php',
     'Illuminate\\Console\\Scheduling\\ScheduleFinishCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleFinishCommand.php',
     'Illuminate\\Console\\Scheduling\\ScheduleRunCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleRunCommand.php',

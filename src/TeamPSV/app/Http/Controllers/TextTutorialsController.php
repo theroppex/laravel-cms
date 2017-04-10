@@ -24,6 +24,16 @@ class TextTutorialsController extends Controller
         return view('text.list', ['posts' => $posts]);
     }
 
+    public function getAllFreePosts(){
+        $posts = TextPost::where('type', 'free')->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+    }
+
+    public function getAllPaidPosts(){
+        $posts = TextPost::where('type', 'paid')->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+    }
+
     public function getFreePost(TextPost $post){
         return view('text.post', ['post' => $post]);
     }
