@@ -110,9 +110,11 @@
                                         @endif
                                     @endif
 
-                                    <li>
-                                        <a href="/createtext">Create Text Tutorial</a>
-                                    </li>
+                                    @can('create', \App\TextPost::class)
+                                        <li>
+                                            <a href="/createtext">Create Text Tutorial</a>
+                                        </li>
+                                    @endcan
 
                                     <li>
                                         <a href="{{ route('logout') }}"

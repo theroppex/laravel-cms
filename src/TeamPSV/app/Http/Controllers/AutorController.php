@@ -23,8 +23,13 @@ class AutorController extends Controller
      */
     public function getTextForm()
     {
+        if(Auth::user()->can('create', TextPost::class))
+        {
         $cats = Category::all();
         return view("text.form", ['cats' => $cats]);
+        }
+
+        return redirect()->back();
     }
 
 
@@ -35,27 +40,29 @@ class AutorController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function uploadText(Request $request){
+        if(Auth::user()->can('create', TextPost::class))
+        {
+            $this->validate($request, [
+                'title' => 'required|max:140|min:30',
+                'description' => 'required|max:180|min:30',
+                'body' => 'required',
+            ]);
 
-        $this->validate($request, [
-            'title' => 'required|max:140|min:30',
-            'description' => 'required|max:180|min:30',
-            'body' => 'required',
-        ]);
+            $idUser = Auth::user()->id;
+            $title = $request->title;
+            $description = $request->description;
+            $body = $request->body;
+            $catId = $request->get('cat');
 
-        $idUser = Auth::user()->id;
-        $title = $request->title;
-        $description = $request->description;
-        $body = $request->body;
-        $catId = $request->get('cat');
-
-       TextPost::create([
-           'user-id' => $idUser,
-           'title' => $title,
-           'description' => $description,
-           'body' => $body,
-           'type' => $request->get('type'),
-           'cat-id' => $catId,
-       ]);
+           TextPost::create([
+               'user-id' => $idUser,
+               'title' => $title,
+               'description' => $description,
+               'body' => $body,
+               'type' => $request->get('type'),
+               'cat-id' => $catId,
+           ]);
+        }
 
        return redirect()->back();
     }
