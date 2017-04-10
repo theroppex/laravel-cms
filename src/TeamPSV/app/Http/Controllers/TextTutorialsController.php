@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\TextPost;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,11 @@ class TextTutorialsController extends Controller
     public function getTextTutorials()
     {
         $posts = TextPost::paginate(10);
+        return view('text.list', ['posts' => $posts]);
+    }
+
+    public function getPostsByCategory(Category $category){
+        $posts = TextPost::where('cat-id', $category->id)->paginate(10);
         return view('text.list', ['posts' => $posts]);
     }
 

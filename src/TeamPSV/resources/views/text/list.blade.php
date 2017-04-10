@@ -11,7 +11,7 @@
                         <h4>{{$post->description}}</h4>
                         <h6>@if($post->type === 'free')<span class="bg-success"> @else <span class="bg-warning">@endif
                             <a href="/text-posts/type/{{$post->type}}" class="text-info">{{$post->type}}</a></span> | <span class="bg-info">
-                            <a href="#" class="text-info">{{$post->category->name}}</a></span>
+                            <a href="/text-posts/cat/{{$post->category->id}}" class="text-info">{{$post->category->name}}</a></span>
                         </h6>
                     </div>
                     <div class="col-md-2">

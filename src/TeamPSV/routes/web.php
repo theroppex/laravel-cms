@@ -42,6 +42,7 @@ Route::get('/text-post/free/{post}', 'TextTutorialsController@getFreePost');
 Route::get('/text-post/paid/{post}', 'TextTutorialsController@getPaidPost');
 Route::get('/text-posts/type/free', 'TextTutorialsController@getAllFreePosts');
 Route::get('/text-posts/type/paid', 'TextTutorialsController@getAllPaidPosts');
+Route::get('/text-posts/cat/{category}', 'TextTutorialsController@getPostsByCategory');
 
 
 /**
