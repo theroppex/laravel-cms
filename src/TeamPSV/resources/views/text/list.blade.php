@@ -13,11 +13,15 @@
                             <a href="/text-posts/type/{{$post->type}}" class="text-info">{{$post->type}}</a></span> | <span class="bg-info">
                             <a href="/text-posts/cat/{{$post->category->id}}" class="text-info">{{$post->category->name}}</a></span>
                         </h6>
+                        @can('delete', $post)
+                            <a href="/text-posts/delete/{{$post->id}}" class="btn btn-sm btn-danger pull-right">Delete</a>
+                        @endcan
                     </div>
                     <div class="col-md-2">
                         <a href="#" class="text-info"><h3>By: {{$post->user->name}}</h3></a>
                     </div>
                 </div>
+                <hr/>
                 <hr/>
             @endforeach
         </div>

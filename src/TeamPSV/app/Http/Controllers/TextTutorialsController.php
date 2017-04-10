@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\TextPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TextTutorialsController extends Controller
 {
@@ -67,4 +68,18 @@ class TextTutorialsController extends Controller
     }
 
     //TODO FREE PAID POSTS OMG
+
+    /**
+     * Brise specifican post
+     *
+     * @param TextPost $post
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deletePost(TextPost $post){
+        if(Auth::user()->can('delete', $post))
+        {
+            $post->delete();
+        }
+        return redirect()->back();
+    }
 }

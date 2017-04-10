@@ -19,7 +19,7 @@ class TextPostPolicy
      */
     public function view(User $user, TextPost $textPost)
     {
-        //
+        //TODO pregled postova privilegija
     }
 
     /**
@@ -42,7 +42,7 @@ class TextPostPolicy
      */
     public function update(User $user, TextPost $textPost)
     {
-        //
+        //Nema opcije updejtovanja... :) :P
     }
 
     /**
@@ -54,6 +54,6 @@ class TextPostPolicy
      */
     public function delete(User $user, TextPost $textPost)
     {
-        //
+        return $user->isAdmin() || $user->role->type === 'moderator' || $user->id === $textPost->user->id;
     }
 }
