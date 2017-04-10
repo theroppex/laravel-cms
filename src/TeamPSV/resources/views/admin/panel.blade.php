@@ -90,6 +90,7 @@
                                     <th>Id</th>
                                     <th>Title</th>
                                     <th>Author</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -98,12 +99,15 @@
                                         <th>
                                             {{$post->id}}
                                         </th>
-                                        <th>
+                                        <td>
                                             {{$post->title}}
-                                        </th>
-                                        <th>
+                                        </td>
+                                        <td>
                                             {{$post->user->name}}
-                                        </th>
+                                        </td>
+                                        <td>
+                                            <a href="/admin/delete/text/{{$post->id}}" ><i class="fa fa-trash" style="color: red" aria-hidden="true"></i></a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

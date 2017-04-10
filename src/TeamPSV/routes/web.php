@@ -29,6 +29,7 @@ Route::get('/user/ban/{user}', 'AdminController@banUser');
 Route::get('/user/unban/{user}', 'AdminController@unbanUser');
 Route::get('user/role/{user}', 'AdminController@getRole');
 Route::post('user/role/edit/{user}', 'AdminController@editRole');
+Route::get('/admin/delete/text/{post}', 'AdminController@deleteTextPost');
 
 /**
  * Putanje za text

@@ -89,4 +89,15 @@ class AdminController extends Controller
         $user->update(['role-id' => $roleId]);
         return redirect('admin-panel');
     }
+
+    /**
+     * Brise post iz adminskog panela
+     *
+     * @param TextPost $post
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function deleteTextPost(TextPost $post){
+        $post->delete();
+        return redirect('admin-panel');
+    }
 }
