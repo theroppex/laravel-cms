@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\TextPost;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,6 +55,17 @@ class TextTutorialsController extends Controller
      */
     public function getAllPaidPosts(){
         $posts = TextPost::where('type', 'paid')->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+    }
+
+    /**
+     * Prikazuje sve postove koji pripadaju jednom korisniku
+     *
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getAllPostsByUser(User $user){
+        $posts = $user->textPosts()->paginate(10);
         return view('text.list', ['posts' => $posts]);
     }
 

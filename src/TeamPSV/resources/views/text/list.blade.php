@@ -18,7 +18,7 @@
                         @endcan
                     </div>
                     <div class="col-md-2">
-                        <a href="#" class="text-info"><h3>By: {{$post->user->name}}</h3></a>
+                        <a href="/text-posts/user/{{$post->user->id}}" class="text-info"><h3>By: {{$post->user->name}}</h3></a>
                     </div>
                 </div>
                 <hr/>

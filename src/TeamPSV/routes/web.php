@@ -44,6 +44,7 @@ Route::get('/text-posts/type/free', 'TextTutorialsController@getAllFreePosts');
 Route::get('/text-posts/type/paid', 'TextTutorialsController@getAllPaidPosts');
 Route::get('/text-posts/cat/{category}', 'TextTutorialsController@getPostsByCategory');
 Route::get('/text-posts/delete/{post}', 'TextTutorialsController@deletePost');
+Route::get('/text-posts/user/{user}', 'TextTutorialsController@getAllPostsByUser');
 
 
 /**

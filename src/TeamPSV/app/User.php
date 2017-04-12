@@ -43,7 +43,7 @@ class User extends Authenticatable
      */
     public function textPosts()
     {
-        return $this->hasMany('App\TextPost');
+        return $this->hasMany('App\TextPost', 'user-id');
     }
 
     /**
