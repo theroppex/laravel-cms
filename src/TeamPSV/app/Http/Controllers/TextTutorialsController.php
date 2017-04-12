@@ -98,6 +98,12 @@ class TextTutorialsController extends Controller
     }
 
     public function createComment(TextPost $post, Request $request){
+        $this->validate($request,
+            [
+                'body' => 'required|max:720'
+            ]
+        );
+
         TextPostComment::create(
             [
                 'post_id' => $post->id,

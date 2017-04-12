@@ -19,11 +19,24 @@
             <hr>
             <div class="row">
                 <div class="col-md-12">
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="/text-posts/create/comment/{{$post->id}}" method="post">
                         {!! csrf_field() !!}
                         <div class="form-group">
                             <label for="comment">Your Comment</label>
-                            <textarea class="form-control" name="body" id="body" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" name="body" id="body" cols="30" rows="5" required>
+                                {{old('body')}}
+                            </textarea>
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -43,10 +56,20 @@
                                 <div class="panel-body">
                                     @foreach($comments as $comment)
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                {{$comment->body}}
+                                            <div class="col-md-10 col-md-offset-1" style="background: ghostwhite">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h4>{{$comment->user->name}}:</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        {{$comment->body}}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <hr>
                                     @endforeach
                                 </div>
                             </div>
