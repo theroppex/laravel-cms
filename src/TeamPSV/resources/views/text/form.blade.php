@@ -24,12 +24,12 @@
 
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" name="title" required>
+                    <input type="text" class="form-control" name="title" value="{{old('title')}}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <input type="text" class="form-control" name="description" required>
+                    <input type="text" class="form-control" name="description" value="{{old('description')}}" required>
                 </div>
 
                 <div class="form-group">
@@ -49,7 +49,7 @@
 
                 <div class="form-group">
                     <label for="body">Your post</label>
-                    <textarea name="body" class="form-control editor" rows="15"></textarea>
+                    <textarea name="body" class="form-control editor" rows="15">{!! old('body') !!}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
