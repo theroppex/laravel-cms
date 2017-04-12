@@ -11,7 +11,7 @@
     <!-- TinyMCE -->
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script>tinymce.init({
-            selector: 'textarea',
+            selector: 'textarea.editor',
             height: 500,
             menubar: false,
             plugins: [

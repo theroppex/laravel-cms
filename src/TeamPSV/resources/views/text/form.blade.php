@@ -49,7 +49,7 @@
 
                 <div class="form-group">
                     <label for="body">Your post</label>
-                    <textarea name="body" class="form-control" rows="15"></textarea>
+                    <textarea name="body" class="form-control editor" rows="15"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
