@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\TextPost;
+use App\TextPostComment;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -76,7 +77,8 @@ class TextTutorialsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getFreePost(TextPost $post){
-        return view('text.post', ['post' => $post]);
+        $comments = $post->comments;
+        return view('text.post', ['post' => $post, 'comments' => $comments]);
     }
 
     //TODO FREE PAID POSTS OMG
@@ -92,6 +94,17 @@ class TextTutorialsController extends Controller
         {
             $post->delete();
         }
+        return redirect()->back();
+    }
+
+    public function createComment(TextPost $post, Request $request){
+        TextPostComment::create(
+            [
+                'post_id' => $post->id,
+                'user_id' => Auth::user()->id,
+                'body' => $request->body,
+            ]
+        );
         return redirect()->back();
     }
 }

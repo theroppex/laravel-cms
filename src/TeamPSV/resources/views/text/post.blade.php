@@ -19,10 +19,11 @@
             <hr>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="#" method="post">
+                    <form action="/text-posts/create/comment/{{$post->id}}" method="post">
+                        {!! csrf_field() !!}
                         <div class="form-group">
                             <label for="comment">Your Comment</label>
-                            <textarea class="form-control" name="comment" id="comment" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" name="body" id="body" cols="30" rows="5"></textarea>
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -40,7 +41,13 @@
                             </div>
                             <div id="collapsecoms" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Ovde ce ici komenti
+                                    @foreach($comments as $comment)
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                {{$comment->body}}
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

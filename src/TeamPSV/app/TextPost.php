@@ -18,7 +18,21 @@ class TextPost extends Model
         return $this->belongsTo('App\User', 'user-id');
     }
 
+    /**
+     * Vraca kategoriju kojo post pripada
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category(){
         return $this->belongsTo('App\Category', 'cat-id');
+    }
+
+    /**
+     * Vraca komentare koji pripadaju datom postu
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(){
+        return $this->hasMany('App\TextPostComment', 'post_id');
     }
 }
