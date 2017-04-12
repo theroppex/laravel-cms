@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="background-color: white">
-            @foreach($posts as $post)
+            @foreach($posts->reverse() as $post)
                 <div class="row" >
                     <div class="col-md-10">
                         <a href="/text-post/{{$post->type}}/{{$post->id}}" class="text-info"><h1>{{$post->title}}</h1></a>

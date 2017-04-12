@@ -54,7 +54,7 @@
                             </div>
                             <div id="collapsecoms" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    @foreach($comments as $comment)
+                                    @foreach($comments->reverse() as $comment)
                                         <div class="row">
                                             <div class="col-md-10 col-md-offset-1" style="background: ghostwhite">
                                                 <div class="row">
