@@ -73,7 +73,7 @@ class TextTutorialsController extends Controller
     public function searchPosts(Request $request){
         $this->validate($request,
             [
-                'search' => 'required'
+                'search' => 'required|min:3|max:120'
             ]
         );
 
