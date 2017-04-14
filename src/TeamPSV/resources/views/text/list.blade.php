@@ -3,6 +3,21 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="background-color: white">
+            <div class="row" style="margin-top: 20px">
+                <div class="col-md-10">
+                    <form action="/text-posts/search/" method="post">
+                        {!! csrf_field() !!}
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="Search posts..." required>
+                            <span class="input-group-btn"><button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i></button></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-1">
+                    <img src="/img/algolia.svg" class="img-responsive" alt="Powered by: Algolia">
+                </div>
+            </div>
             @foreach($posts->reverse() as $post)
                 <div class="row" >
                     <div class="col-md-10">
