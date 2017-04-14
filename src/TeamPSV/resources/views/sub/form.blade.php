@@ -137,18 +137,22 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
-            <form action="/subscription/create/" method="POST">
-                {!! csrf_field() !!}
-                <script
-                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="pk_test_DvLJmbNK00POQUlWLsWySXEi"
-                        data-amount="999"
-                        data-name="Team PSV"
-                        data-description="Widget"
-                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                        data-locale="auto">
-                </script>
-            </form>
+            @if(!\Illuminate\Support\Facades\Auth::user()->subscribed('main'))
+                <form action="/subscription/create/" method="POST">
+                    {!! csrf_field() !!}
+                    <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="pk_test_DvLJmbNK00POQUlWLsWySXEi"
+                            data-amount="999"
+                            data-name="Team PSV"
+                            data-description="Widget"
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto">
+                    </script>
+                </form>
+            @else
+                <h3>Thank you for subscription.</h3>
+            @endif
         </div>
     </div>
 </div>
