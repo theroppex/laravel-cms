@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
 
 class TextPost extends Model
 {
+
+    use Searchable;
 
     protected $fillable = ['user-id', 'cat-id','title','description','type','body'];
 
