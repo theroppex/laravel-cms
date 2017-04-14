@@ -50,6 +50,13 @@ Route::post('/text-posts/search/', 'TextTutorialsController@searchPosts');
 
 
 /**
+ * Putanje za subscripiton
+ *
+ */
+Route::get('/subscription/', 'SubscriptionController@getSubscription');
+Route::post('/subscription/create/', 'SubscriptionController@createSubscription');
+
+/**
  * ERROR PUTANJE
  *
  */

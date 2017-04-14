@@ -79,7 +79,7 @@
                             <a href="/text-tutorials">Text Tutorials</a>
                         </li>
                         <li>
-                            <a href="#">SUBSCRIBE</a>
+                            <a href="/subscription/">SUBSCRIBE</a>
                         </li>
                         <li>
                             <a href="#">About</a>
@@ -140,5 +140,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
 </body>
 </html>
