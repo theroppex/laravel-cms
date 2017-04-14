@@ -70,6 +70,17 @@ class TextTutorialsController extends Controller
         return view('text.list', ['posts' => $posts]);
     }
 
+    public function searchPosts(Request $request){
+        $this->validate($request,
+            [
+                'search' => 'required'
+            ]
+        );
+
+        $posts = TextPost::search($request->search)->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+    }
+
     /**
      * Korisniku prikazuje besplatan post
      *
