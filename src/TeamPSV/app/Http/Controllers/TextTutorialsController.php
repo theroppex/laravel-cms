@@ -70,6 +70,12 @@ class TextTutorialsController extends Controller
         return view('text.list', ['posts' => $posts]);
     }
 
+    /**
+     * Funkcija koja pretrazuje postove na osnovu naslova, tipa, opisa, tela...
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function searchPosts(Request $request){
         $this->validate($request,
             [
@@ -92,7 +98,7 @@ class TextTutorialsController extends Controller
             $comments = $post->comments;
             return view('text.post', ['post' => $post, 'comments' => $comments]);
         }
-        return redirect()->back();
+        return redirect('subscription');
     }
 
 
@@ -110,6 +116,13 @@ class TextTutorialsController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Funkcija kreira novi komentar za dati tekstualni post
+     *
+     * @param TextPost $post
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function createComment(TextPost $post, Request $request){
         $this->validate($request,
             [
