@@ -19,7 +19,11 @@ class TextPostPolicy
      */
     public function view(User $user, TextPost $textPost)
     {
-        //TODO pregled postova privilegija
+        if($textPost->type == 'paid'){
+            return $user->hasSubscriptionAcces();
+        }
+
+        return true;
     }
 
     /**

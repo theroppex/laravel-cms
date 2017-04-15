@@ -25,8 +25,8 @@ class AutorController extends Controller
     {
         if(Auth::user()->can('create', TextPost::class))
         {
-        $cats = Category::all();
-        return view("text.form", ['cats' => $cats]);
+            $cats = Category::all();
+            return view("text.form", ['cats' => $cats]);
         }
 
         return redirect()->back();
@@ -43,8 +43,8 @@ class AutorController extends Controller
         if(Auth::user()->can('create', TextPost::class))
         {
             $this->validate($request, [
-                'title' => 'required|max:140|min:30',
-                'description' => 'required|max:180|min:30',
+                'title' => 'required|max:140|min:10',
+                'description' => 'required|max:180|min:10',
                 'body' => 'required',
             ]);
 
@@ -64,6 +64,6 @@ class AutorController extends Controller
            ]);
         }
 
-       return redirect()->back();
+       return redirect('text-tutorials');
     }
 }

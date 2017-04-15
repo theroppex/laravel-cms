@@ -68,4 +68,11 @@ class User extends Authenticatable
     public function isBanned(){
         return $this->banned;
     }
+
+    public function hasSubscriptionAcces(){
+        $role = $this->role->type;
+        $precondition = $role == 'admin' || $role == 'subscriber' || $role == 'moderator' || $role == 'autor';
+
+        return $this->subscribed('main') || $precondition;
+    }
 }

@@ -21,7 +21,7 @@
             @foreach($posts->reverse() as $post)
                 <div class="row" >
                     <div class="col-md-10">
-                        <a href="/text-post/{{$post->type}}/{{$post->id}}" class="text-info"><h1>{{$post->title}}</h1></a>
+                        <a href="/text-post/{{$post->id}}" class="text-info"><h1>{{$post->title}}</h1></a>
                         <hr/>
                         <h4>{{$post->description}}</h4>
                         <h6>@if($post->type === 'free')<span class="bg-success"> @else <span class="bg-warning">@endif

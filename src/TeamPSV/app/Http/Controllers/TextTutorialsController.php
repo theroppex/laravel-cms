@@ -87,12 +87,14 @@ class TextTutorialsController extends Controller
      * @param TextPost $post
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getFreePost(TextPost $post){
-        $comments = $post->comments;
-        return view('text.post', ['post' => $post, 'comments' => $comments]);
+    public function getPost(TextPost $post){
+        if(Auth::user()->can('view', $post)) {
+            $comments = $post->comments;
+            return view('text.post', ['post' => $post, 'comments' => $comments]);
+        }
+        return redirect()->back();
     }
 
-    //TODO FREE PAID POSTS OMG
 
     /**
      * Brise specifican post
