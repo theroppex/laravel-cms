@@ -54,6 +54,8 @@ Route::post('/text-posts/search/', 'TextTutorialsController@searchPosts');
  */
 Route::get('/subscription/', 'SubscriptionController@getSubscription');
 Route::post('/subscription/create/', 'SubscriptionController@createSubscription');
+Route::get('/subscription/cancel/', 'SubscriptionController@cancelSubscription');
+Route::get('/subscription/resume/', 'SubscriptionController@resumeSubscription');
 
 /**
  * ERROR PUTANJE

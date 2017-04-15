@@ -138,20 +138,42 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
             @if(!\Illuminate\Support\Facades\Auth::user()->subscribed('main'))
-                <form action="/subscription/create/" method="POST">
-                    {!! csrf_field() !!}
-                    <script
-                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_DvLJmbNK00POQUlWLsWySXEi"
-                            data-amount="999"
-                            data-name="Team PSV"
-                            data-description="Widget"
-                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                            data-locale="auto">
-                    </script>
-                </form>
+                <div class="row">
+                    <div class="col-md-6 text-center col-md-offset-3">
+                        <h1>Join now!</h1>
+                        <h3>Get full access for $9.99/m</h3>
+                        <hr>
+                        <form action="/subscription/create/" method="POST">
+                            {!! csrf_field() !!}
+                            <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="pk_test_DvLJmbNK00POQUlWLsWySXEi"
+                                    data-amount="999"
+                                    data-name="Team PSV"
+                                    data-description="Widget"
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto">
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            @elseif(\Illuminate\Support\Facades\Auth::user()->subscription('main')->cancelled())
+                <div class="row">
+                    <div class="col-md-6 text-center col-md-offset-3">
+                        <h1>Your subscription ends at:</h1>
+                        <h3>{{\Illuminate\Support\Facades\Auth::user()->subscription('main')->ends_at}}</h3>
+                        <hr>
+                        <a href="/subscription/resume/" class="btn btn-success">Resume now!</a>
+                    </div>
+                </div>
             @else
-                <h3>Thank you for subscription.</h3>
+                <div class="row">
+                    <div class="col-md-6 text-center col-md-offset-3">
+                        <h1>Thank you for subscribing!</h1>
+                        <hr>
+                        <a href="/subscription/cancel/" class="btn btn-danger">Cancel subscription</a>
+                    </div>
+                </div>
             @endif
         </div>
     </div>

@@ -23,6 +23,7 @@
                                         <th>Name</th>
                                         <th>Surname</th>
                                         <th>Email</th>
+                                        <th>Subbed?</th>
                                         <th>Role</th>
                                         <th>Edit Role</th>
                                         <th>Ban</th>
@@ -43,6 +44,13 @@
                                             </td>
                                             <td>
                                                 {{$user->email}}
+                                            </td>
+                                            <td>
+                                                @if($user->subscribed('main'))
+                                                    Yes
+                                                @else
+                                                    No
+                                                @endif
                                             </td>
                                             <td>
                                                 {{$user->role->type}}

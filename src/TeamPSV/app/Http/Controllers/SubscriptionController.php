@@ -21,4 +21,14 @@ class SubscriptionController extends Controller
         Auth::user()->newSubscription('main', 'main')->create($request->stripeToken);
         return redirect('home');
     }
+
+    public function cancelSubscription(){
+        Auth::user()->subscription('main')->cancel();
+        return redirect()->back();
+    }
+
+    public function resumeSubscription(){
+        Auth::user()->subscription('main')->resume();
+        return redirect()->back();
+    }
 }
