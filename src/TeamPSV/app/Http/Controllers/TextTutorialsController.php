@@ -70,6 +70,12 @@ class TextTutorialsController extends Controller
         return view('text.list', ['posts' => $posts]);
     }
 
+    /**
+     * Funkcija koja pretrazuje postove na osnovu naslova, tipa, opisa, tela...
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function searchPosts(Request $request){
         $this->validate($request,
             [
@@ -87,12 +93,14 @@ class TextTutorialsController extends Controller
      * @param TextPost $post
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getFreePost(TextPost $post){
-        $comments = $post->comments;
-        return view('text.post', ['post' => $post, 'comments' => $comments]);
+    public function getPost(TextPost $post){
+        if(Auth::user()->can('view', $post)) {
+            $comments = $post->comments;
+            return view('text.post', ['post' => $post, 'comments' => $comments]);
+        }
+        return redirect('subscription');
     }
 
-    //TODO FREE PAID POSTS OMG
 
     /**
      * Brise specifican post
@@ -108,6 +116,13 @@ class TextTutorialsController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Funkcija kreira novi komentar za dati tekstualni post
+     *
+     * @param TextPost $post
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function createComment(TextPost $post, Request $request){
         $this->validate($request,
             [

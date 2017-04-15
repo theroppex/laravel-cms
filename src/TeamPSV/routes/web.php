@@ -38,8 +38,7 @@ Route::get('/admin/delete/text/{post}', 'AdminController@deleteTextPost');
 Route::get('/createtext','AutorController@getTextForm');
 Route::post('/create-post','AutorController@uploadText');
 Route::get('/text-tutorials', 'TextTutorialsController@getTextTutorials');
-Route::get('/text-post/free/{post}', 'TextTutorialsController@getFreePost');
-Route::get('/text-post/paid/{post}', 'TextTutorialsController@getPaidPost');
+Route::get('/text-post/{post}', 'TextTutorialsController@getPost');
 Route::get('/text-posts/type/free', 'TextTutorialsController@getAllFreePosts');
 Route::get('/text-posts/type/paid', 'TextTutorialsController@getAllPaidPosts');
 Route::get('/text-posts/cat/{category}', 'TextTutorialsController@getPostsByCategory');
@@ -48,6 +47,15 @@ Route::get('/text-posts/user/{user}', 'TextTutorialsController@getAllPostsByUser
 Route::post('/text-posts/create/comment/{post}', 'TextTutorialsController@createComment');
 Route::post('/text-posts/search/', 'TextTutorialsController@searchPosts');
 
+
+/**
+ * Putanje za subscripiton
+ *
+ */
+Route::get('/subscription/', 'SubscriptionController@getSubscription');
+Route::post('/subscription/create/', 'SubscriptionController@createSubscription');
+Route::get('/subscription/cancel/', 'SubscriptionController@cancelSubscription');
+Route::get('/subscription/resume/', 'SubscriptionController@resumeSubscription');
 
 /**
  * ERROR PUTANJE

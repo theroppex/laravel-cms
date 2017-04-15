@@ -181,6 +181,7 @@ return [
          * Dodati provajderi
          */
         Laravel\Scout\ScoutServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
     ],
 
     /*

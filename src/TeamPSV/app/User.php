@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    use Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -64,5 +67,12 @@ class User extends Authenticatable
      */
     public function isBanned(){
         return $this->banned;
+    }
+
+    public function hasSubscriptionAcces(){
+        $role = $this->role->type;
+        $precondition = $role == 'admin' || $role == 'subscriber' || $role == 'moderator' || $role == 'autor';
+
+        return $this->subscribed('main') || $precondition;
     }
 }
