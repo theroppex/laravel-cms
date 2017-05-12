@@ -117,6 +117,20 @@ class TextTutorialsController extends Controller
     }
 
     /**
+     * Funkcija brise izabrani komentar
+     *
+     * @param TextPostComment $comment
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteTextPostComment(TextPostComment $comment){
+        if(Auth::user()->can('delete', $comment))
+        {
+            $comment->delete();
+        }
+        return redirect()->back();
+    }
+
+    /**
      * Funkcija kreira novi komentar za dati tekstualni post
      *
      * @param TextPost $post
@@ -124,19 +138,21 @@ class TextTutorialsController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function createComment(TextPost $post, Request $request){
-        $this->validate($request,
-            [
-                'body' => 'required|max:720'
-            ]
-        );
+        if(Auth::user()->can('create', TextPostComment::class)) {
+            $this->validate($request,
+                [
+                    'body' => 'required|max:720'
+                ]
+            );
 
-        TextPostComment::create(
-            [
-                'post_id' => $post->id,
-                'user_id' => Auth::user()->id,
-                'body' => $request->body,
-            ]
-        );
+            TextPostComment::create(
+                [
+                    'post_id' => $post->id,
+                    'user_id' => Auth::user()->id,
+                    'body' => $request->body,
+                ]
+            );
+        }
         return redirect()->back();
     }
 }

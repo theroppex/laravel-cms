@@ -59,7 +59,9 @@
                                             <div class="col-md-10 col-md-offset-1" style="background: ghostwhite">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <h4>{{$comment->user->name}}:</h4>
+                                                        @can('delete', $comment)
+                                                            <h4>{{$comment->user->name}}: <a href="/text-post-comment/delete/{{$comment->id}}" class="pull-right text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></h4>
+                                                        @endcan
                                                     </div>
                                                 </div>
                                                 <div class="row">
