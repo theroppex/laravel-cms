@@ -46,7 +46,7 @@ Route::get('/text-posts/delete/{post}', 'TextTutorialsController@deletePost');
 Route::get('/text-posts/user/{user}', 'TextTutorialsController@getAllPostsByUser');
 Route::post('/text-posts/create/comment/{post}', 'TextTutorialsController@createComment');
 Route::post('/text-posts/search/', 'TextTutorialsController@searchPosts');
-
+Route::get('/text-post-comment/delete/{comment}', 'TextTutorialsController@deleteTextPostComment');
 
 /**
  * Putanje za subscripiton
