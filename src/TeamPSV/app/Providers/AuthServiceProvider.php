@@ -15,6 +15,8 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
         'App\TextPost' => 'App\Policies\TextPostPolicy',
+        'App\VideoPost' => 'App\Policies\VideoPostPolicy',
+        'App\TextPostComment' => 'App\Policies\TextPostCommentPolicy',
         'App\TextPostComment' => 'App\Policies\TextPostCommentPolicy',
     ];
 
