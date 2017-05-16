@@ -115,6 +115,9 @@
                                             <a href="/createtext">Create Text Tutorial</a>
                                         </li>
                                     @endcan
+                                    <li>
+                                        <a href="/change-user-password">Change Password</a>
+                                    </li>
 
                                     <li>
                                         <a href="{{ route('logout') }}"
