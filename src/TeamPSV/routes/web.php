@@ -57,6 +57,14 @@ Route::post('/subscription/create/', 'SubscriptionController@createSubscription'
 Route::get('/subscription/cancel/', 'SubscriptionController@cancelSubscription');
 Route::get('/subscription/resume/', 'SubscriptionController@resumeSubscription');
 
+
+/**
+ * Putanje za user profile management
+ *
+ */
+Route::get('/change-user-password', 'UserManagementController@getChangeUserPassword');
+Route::post('/change-user-password', 'UserManagementController@submitChangeUserPassword');
+
 /**
  * ERROR PUTANJE
  *
