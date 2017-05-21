@@ -23,8 +23,8 @@ class CreateVideoPostsTable extends Migration
             $table->integer('cat-id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user-id')->references('id')->on('users');
-            $table->foreign('cat-id')->references('id')->on('categories');
+            $table->foreign('user-id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('cat-id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
