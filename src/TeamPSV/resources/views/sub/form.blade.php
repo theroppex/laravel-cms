@@ -73,7 +73,7 @@
                     </li>
 
                     <li>
-                        <a href="#">Video Tutorials</a>
+                        <a href="/video-tutorials">Video Tutorials</a>
                     </li>
                     <li>
                         <a href="/text-tutorials">Text Tutorials</a>
@@ -115,6 +115,18 @@
                                         <a href="/createtext">Create Text Tutorial</a>
                                     </li>
                                 @endcan
+
+
+                                @can('create', \App\VideoPost::class)
+                                    <li>
+                                        <a href="/createvideo">Create Video Tutorial</a>
+                                    </li>
+                                @endcan
+
+
+                                <li>
+                                    <a href="/change-user-password">Change Password</a>
+                                </li>
 
                                 <li>
                                     <a href="{{ route('logout') }}"
