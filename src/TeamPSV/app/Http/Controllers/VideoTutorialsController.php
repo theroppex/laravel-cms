@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\VideoPost;
+use Illuminate\Support\Facades\Auth;
+use App\VideoPostComment;
+use App\User;
+use App\Category;
 
 class VideoTutorialsController extends Controller
 {
@@ -20,14 +25,14 @@ class VideoTutorialsController extends Controller
      */
     public function getVideoTutorials()
     {
-        $videoposts = TextPost::paginate(10);
+        $videoposts = VideoPost::paginate(10);
         return view('video.list', ['videoposts' => $videoposts]);
     }
 
 
 
     /**
-     * Dohvata postove na osnovu kategorije
+     * Dohvata video postove na osnovu kategorije
      *
      * @param Category $category
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -60,7 +65,7 @@ class VideoTutorialsController extends Controller
     }
 
     /**
-     * Prikazuje sve postove koji pripadaju jednom korisniku
+     * Prikazuje sve video postove koji pripadaju jednom korisniku
      *
      * @param User $user
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -84,8 +89,8 @@ class VideoTutorialsController extends Controller
             ]
         );
 
-        $videoposts = VideoPost::search($request->search)->paginate(10);
-        return view('video.list', ['videoposts' => $videoposts]);
+        $post = VideoPost::search($request->search)->paginate(10);
+        return view('video.list', ['videoposts' => $post]);
     }
 
 
@@ -93,13 +98,13 @@ class VideoTutorialsController extends Controller
     /**
      * Korisniku prikazuje besplatan post
      *
-     * @param TextPost $post
+     * @param VideoPost $post
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getvideoPost(VideoPost $videopost){
-        if(Auth::user()->can('view', $videopost)) {
-            $comments = $videopost->comments;
-            return view('video.post', ['videopost' => $videopost, 'comments' => $comments]);
+    public function getvideoPost(VideoPost $post){
+        if(Auth::user()->can('view', $post)) {
+            $comments = $post->comments;
+            return view('video.post', ['post' => $post, 'comments' => $comments]);
         }
         return redirect('subscription');
     }
@@ -112,10 +117,10 @@ class VideoTutorialsController extends Controller
      * @param VideoPost $post
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function deleteVideoPost(VideoPost $videopost){
-        if(Auth::user()->can('delete', $videopost))
+    public function deleteVideoPost(VideoPost $post){
+        if(Auth::user()->can('delete', $post))
         {
-            $videopost->delete();
+            $post->delete();
         }
         return redirect()->back();
     }
@@ -125,7 +130,7 @@ class VideoTutorialsController extends Controller
     /**
      * Funkcija brise izabrani komentar
      *
-     * @param TextPostComment $comment
+     * @param VideoPostComment $comment
      * @return \Illuminate\Http\RedirectResponse
      */
     public function deleteVideoPostComment(VideoPostComment $comment){
@@ -141,12 +146,12 @@ class VideoTutorialsController extends Controller
     /**
      * Funkcija kreira novi komentar za dati tekstualni post
      *
-     * @param TextPost $post
+     * @param VideoPost $post
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function createComment(VideoPost $videopost, Request $request){
-        if(Auth::user()->can('create', VideoPostComment::class)) {
+    public function createComment(VideoPost $post, Request $request){
+        //if(Auth::user()->can('create', VideoPostComment::class)) {
             $this->validate($request,
                 [
                     'body' => 'required|max:720'
@@ -155,12 +160,12 @@ class VideoTutorialsController extends Controller
 
             VideoPostComment::create(
                 [
-                    'post_id' => $videopost->id,
+                    'post_id' => $post->id,
                     'user_id' => Auth::user()->id,
                     'body' => $request->body,
                 ]
             );
-        }
+        //}
         return redirect()->back();
     }
 
