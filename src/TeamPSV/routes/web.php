@@ -65,7 +65,7 @@ Route::get('/video-posts/cat/{category}', 'VideoTutorialsController@getVideoPost
 Route::get('/video-posts/delete/{post}', 'VideoTutorialsController@deleteVideoPost');
 Route::get('/video-posts/user/{user}', 'VideoTutorialsController@getAllPostsByUser');
 Route::post('/video-posts/create/comment/{post}', 'VideoTutorialsController@createComment');
-Route::post('/video-posts/search/', 'VideoTutorialsController@searchVideoPosts');
+Route::post('/video-posts/search/', 'VideoTutorialsController@searchPosts');
 Route::get('/video-post-comment/delete/{comment}', 'VideoTutorialsController@deleteVideoPostComment');
 
 
