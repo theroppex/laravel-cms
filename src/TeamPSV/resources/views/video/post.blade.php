@@ -13,7 +13,9 @@
             </div>
             <div class="row" style="background-color: white">
                 <div class="col-md-12">
-                    {!! $post->body !!}
+                    <video width="640" height="480" controls>
+                        <source src="/{{$post->url}}" type="video/mp4">
+                    </video>
                 </div>
             </div>
             <hr>
@@ -30,7 +32,7 @@
                         </div>
                     @endif
 
-                    <form action="/text-posts/create/comment/{{$post->id}}" method="post">
+                    <form action="/video-posts/create/comment/{{$post->id}}" method="post">
                         {!! csrf_field() !!}
                         <div class="form-group">
                             <label for="comment">Your Comment</label>
@@ -62,7 +64,7 @@
                                                         <h4>
                                                             {{$comment->user->name}}:
                                                             @can('delete', $comment)
-                                                                <a href="/text-post-comment/delete/{{$comment->id}}" class="pull-right text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                                <a href="/video-post-comment/delete/{{$comment->id}}" class="pull-right text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                             @endcan
                                                         </h4>
                                                     </div>

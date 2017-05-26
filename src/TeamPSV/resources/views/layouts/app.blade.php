@@ -73,7 +73,7 @@
                         </li>
 
                         <li>
-                            <a href="#">Video Tutorials</a>
+                            <a href="/video-tutorials">Video Tutorials</a>
                         </li>
                         <li>
                             <a href="/text-tutorials">Text Tutorials</a>

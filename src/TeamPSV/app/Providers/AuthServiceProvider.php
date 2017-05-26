@@ -17,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\TextPost' => 'App\Policies\TextPostPolicy',
         'App\VideoPost' => 'App\Policies\VideoPostPolicy',
         'App\TextPostComment' => 'App\Policies\TextPostCommentPolicy',
-        'App\TextPostComment' => 'App\Policies\TextPostCommentPolicy',
+        'App\VideoPostComment' => 'App\Policies\VideoPostCommentPolicy',
     ];
 
     /**
