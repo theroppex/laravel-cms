@@ -151,7 +151,7 @@ class VideoTutorialsController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function createComment(VideoPost $post, Request $request){
-        //if(Auth::user()->can('create', VideoPostComment::class)) {
+        if(Auth::user()->can('create', VideoPostComment::class)) {
             $this->validate($request,
                 [
                     'body' => 'required|max:720'
@@ -165,7 +165,7 @@ class VideoTutorialsController extends Controller
                     'body' => $request->body,
                 ]
             );
-        //}
+        }
         return redirect()->back();
     }
 
