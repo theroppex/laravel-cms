@@ -48,6 +48,28 @@ Route::post('/text-posts/create/comment/{post}', 'TextTutorialsController@create
 Route::post('/text-posts/search/', 'TextTutorialsController@searchPosts');
 Route::get('/text-post-comment/delete/{comment}', 'TextTutorialsController@deleteTextPostComment');
 
+
+/**
+* Putanje za video
+*
+*/
+
+
+Route::get('/createvideo','AutorController@getVideoForm');
+Route::post('/create-videopost','AutorController@uploadVideo');
+Route::get('/video-tutorials', 'VideoTutorialsController@getVideoTutorials');
+Route::get('/video-post/{post}', 'VideoTutorialsController@getvideoPost');
+Route::get('/video-posts/type/free', 'VideoTutorialsController@getAllFreeVideoPosts');
+Route::get('/video-posts/type/paid', 'VideoTutorialsController@getAllPaidVideoPosts');
+Route::get('/video-posts/cat/{category}', 'VideoTutorialsController@getVideoPostsByCategory');
+Route::get('/video-posts/delete/{post}', 'VideoTutorialsController@deleteVideoPost');
+Route::get('/video-posts/user/{user}', 'VideoTutorialsController@getAllPostsByUser');
+Route::post('/video-posts/create/comment/{post}', 'VideoTutorialsController@createComment');
+Route::post('/video-posts/search/', 'VideoTutorialsController@searchVideoPosts');
+Route::get('/video-post-comment/delete/{comment}', 'VideoTutorialsController@deleteVideoPostComment');
+
+
+
 /**
  * Putanje za subscripiton
  *
@@ -70,3 +92,5 @@ Route::post('/change-user-password', 'UserManagementController@submitChangeUserP
  *
  */
 Route::get('/banned', 'ErrorController@getBanned');
+
+

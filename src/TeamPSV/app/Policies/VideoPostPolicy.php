@@ -19,7 +19,11 @@ class VideoPostPolicy
      */
     public function view(User $user, VideoPost $videoPost)
     {
-        //
+        if($videoPost->type == 'paid'){
+            return $user->hasSubscriptionAcces();
+        }
+
+        return true;
     }
 
     /**
@@ -30,7 +34,7 @@ class VideoPostPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->isAdmin() || $user->role->type === 'autor';
     }
 
     /**
@@ -54,6 +58,6 @@ class VideoPostPolicy
      */
     public function delete(User $user, VideoPost $videoPost)
     {
-        //
+        return $user->isAdmin() || $user->role->type === 'moderator' || $user->id === $videoPost->user->id;
     }
 }
