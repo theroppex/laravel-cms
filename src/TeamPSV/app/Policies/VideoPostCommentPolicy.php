@@ -19,7 +19,7 @@ class VideoPostCommentPolicy
      */
     public function view(User $user, VideoPostComment $videoPostComment)
     {
-        //
+        return !$user->isBanned();
     }
 
     /**
@@ -30,7 +30,7 @@ class VideoPostCommentPolicy
      */
     public function create(User $user)
     {
-        //
+        return !$user->isBanned();
     }
 
     /**
@@ -42,7 +42,7 @@ class VideoPostCommentPolicy
      */
     public function update(User $user, VideoPostComment $videoPostComment)
     {
-        //
+        return false;
     }
 
     /**
@@ -54,6 +54,6 @@ class VideoPostCommentPolicy
      */
     public function delete(User $user, VideoPostComment $videoPostComment)
     {
-        //
+        return $user->isAdmin() || $user->role->type === 'moderator';
     }
 }
