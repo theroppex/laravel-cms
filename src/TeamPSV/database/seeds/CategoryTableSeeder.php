@@ -14,7 +14,7 @@ class CategoryTableSeeder extends Seeder
     {
         Category::create(
             [
-                'name' => 'general',
+                'name' => 'cpp',
             ]
         );
 
@@ -26,7 +26,25 @@ class CategoryTableSeeder extends Seeder
 
         Category::create(
             [
-                'name' => 'cpp',
+                'name' => 'php',
+            ]
+        );
+
+        Category::create(
+            [
+                'name' => 'xml',
+            ]
+        );
+
+        Category::create(
+            [
+                'name' => 'js',
+            ]
+        );
+
+        Category::create(
+            [
+                'name' => 'nodeJS',
             ]
         );
 
@@ -38,7 +56,7 @@ class CategoryTableSeeder extends Seeder
 
         Category::create(
             [
-                'name' => 'web',
+                'name' => 'jQuery',
             ]
         );
     }
