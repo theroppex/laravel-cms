@@ -61,7 +61,7 @@ Route::get('/video-tutorials', 'VideoTutorialsController@getVideoTutorials');
 Route::get('/video-post/{post}', 'VideoTutorialsController@getvideoPost');
 Route::get('/video-posts/type/free', 'VideoTutorialsController@getAllFreeVideoPosts');
 Route::get('/video-posts/type/paid', 'VideoTutorialsController@getAllPaidVideoPosts');
-Route::get('/video-posts/cat/{category}', 'VideoTutorialsController@getVideoPostsByCategory');
+Route::get('/video-posts/cat/{category}', 'VideoTutorialsController@getPostsByCategory');
 Route::get('/video-posts/delete/{post}', 'VideoTutorialsController@deleteVideoPost');
 Route::get('/video-posts/user/{user}', 'VideoTutorialsController@getAllPostsByUser');
 Route::post('/video-posts/create/comment/{post}', 'VideoTutorialsController@createComment');
