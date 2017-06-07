@@ -123,6 +123,47 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                Video Posts
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($videos as $video)
+                                    <tr>
+                                        <th>
+                                            {{$video->id}}
+                                        </th>
+                                        <td>
+                                            {{$video->title}}
+                                        </td>
+                                        <td>
+                                            {{$video->user->name}}
+                                        </td>
+                                        <td>
+                                            <a href="/video-posts/delete/{{$video->id}}" ><i class="fa fa-trash" style="color: red" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

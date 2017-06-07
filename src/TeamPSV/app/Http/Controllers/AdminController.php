@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\TextPost;
+use App\VideoPost;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -22,7 +23,8 @@ class AdminController extends Controller
     public function adminPanel(){
         $users = User::all();
         $posts = TextPost::all();
-        return view('admin.panel', ['users' => $users, 'posts' => $posts]);
+        $videos = VideoPost::all();
+        return view('admin.panel', ['users' => $users, 'posts' => $posts, 'videos' => $videos]);
     }
 
     /**
