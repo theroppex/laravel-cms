@@ -82,10 +82,7 @@
                             <a href="/subscription/">SUBSCRIBE</a>
                         </li>
                         <li>
-                            <a href="#">About</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
+                            <a href="/about">About</a>
                         </li>
                     </ul>
 

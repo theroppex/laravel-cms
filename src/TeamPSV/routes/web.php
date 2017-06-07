@@ -94,3 +94,9 @@ Route::post('/change-user-password', 'UserManagementController@submitChangeUserP
 Route::get('/banned', 'ErrorController@getBanned');
 
 
+/**
+ *
+ * Putanje za dodatne stranice
+ */
+
+Route::get('about', 'InfoPageController@getAbout');
