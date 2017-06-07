@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="background-color: white">
-            <div class="row" style="margin-top: 20px">
+            <div class="row" style="margin-top: 20px; margin-bottom: 50px">
                 <div class="col-md-10">
                     <form action="/text-posts/search/" method="post">
                         {!! csrf_field() !!}
@@ -18,6 +18,11 @@
                     <img src="/img/algolia.svg" class="img-responsive" alt="Powered by: Algolia">
                 </div>
             </div>
+            @if(count($posts) == 0)
+                <div class="row">
+                    <h3 class="text-muted text-center">No posts found</h3>
+                </div>
+            @endif
             @foreach($posts->reverse() as $post)
                 <div class="row" >
                     <div class="col-md-10">
@@ -25,7 +30,7 @@
                         <hr/>
                         <h4>{{$post->description}}</h4>
                         <h6>@if($post->type === 'free')<span class="bg-success"> @else <span class="bg-warning">@endif
-                            <a href="/text-posts/type/{{$post->type}}" class="text-info">{{$post->type}}</a></span> | <span class="bg-info">
+                                    <a href="/text-posts/type/{{$post->type}}" class="text-info">{{$post->type}}</a></span> | <span class="bg-info">
                             <a href="/text-posts/cat/{{$post->category->id}}" class="text-info">{{$post->category->name}}</a></span>
                         </h6>
                         @can('delete', $post)

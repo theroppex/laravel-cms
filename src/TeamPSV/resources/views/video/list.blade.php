@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="background-color: white">
-            <div class="row" style="margin-top: 20px">
+            <div class="row" style="margin-top: 20px; margin-bottom: 50px">
                 <div class="col-md-10">
                     <form action="/video-posts/search/" method="post">
                         {!! csrf_field() !!}
@@ -18,6 +18,11 @@
                     <img src="/img/algolia.svg" class="img-responsive" alt="Powered by: Algolia">
                 </div>
             </div>
+            @if(count($videoposts) == 0)
+                <div class="row">
+                    <h3 class="text-muted text-center">No posts found</h3>
+                </div>
+            @endif
             @foreach($videoposts->reverse() as $videopost)
                 <div class="row" >
                     <div class="col-md-10">
