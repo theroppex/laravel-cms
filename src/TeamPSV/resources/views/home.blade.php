@@ -5,18 +5,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    You are logged in!<br>
-                    Your Role is: {{\Illuminate\Support\Facades\Auth::user()->role->type}} <br>
+                <div class="panel-heading text-center">
+                    Welcome, {{\Illuminate\Support\Facades\Auth::user()->name}}!
                 </div>
 
                 <div class="panel-body">
-
-                    CHOOSE CATEGORY:<br><br>
-
-                    <!--<input type="radio" id="rad1" name="radioDugme" value="text">&nbsp;Text Tutorials<br>-->
-                    <!--<input type="radio" id="rad2" name="radioDugme" value="video">&nbsp;Video Tutorials<br><br>-->
-
                     <div class="col-md-10">
                         <table>
                             <tr>
