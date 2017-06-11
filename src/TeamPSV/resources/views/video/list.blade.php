@@ -31,10 +31,10 @@
                         <h4>{{$videopost->description}}</h4>
                         <h6>@if($videopost->type === 'free')<span class="bg-success"> @else <span class="bg-warning">@endif
                                     <a href="/video-posts/type/{{$videopost->type}}" class="text-info">{{$videopost->type}}</a></span> | <span class="bg-info">
-                            <a href="/text-posts/cat/{{$videopost->category->id}}" class="text-info">{{$videopost->category->name}}</a></span>
+                            <a href="/video-posts/cat/{{$videopost->category->id}}" class="text-info">{{$videopost->category->name}}</a></span>
                         </h6>
                         @can('delete', $videopost)
-                            <a href="/text-posts/delete/{{$videopost->id}}" class="btn btn-sm btn-danger pull-right">Delete</a>
+                            <a href="/video-posts/delete/{{$videopost->id}}" class="btn btn-sm btn-danger pull-right">Delete</a>
                         @endcan
                     </div>
                     <div class="col-md-2">

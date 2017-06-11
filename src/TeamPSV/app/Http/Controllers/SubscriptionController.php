@@ -19,7 +19,7 @@ class SubscriptionController extends Controller
 
     public function createSubscription(Request $request){
         Auth::user()->newSubscription('main', 'main')->create($request->stripeToken);
-        return redirect('home');
+        return redirect('subscription');
     }
 
     public function cancelSubscription(){

@@ -50,6 +50,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Vraca sve video postove koje ima korisnik
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function videoPosts()
+    {
+        return $this->hasMany('App\VideoPost', 'user-id');
+    }
+
+    /**
      * Funkcija provera da li je korisnik admin
      *
      * @return bool
