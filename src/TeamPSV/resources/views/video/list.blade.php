@@ -23,7 +23,7 @@
                     <h3 class="text-muted text-center">No posts found</h3>
                 </div>
             @endif
-            @foreach($videoposts->reverse() as $videopost)
+            @foreach($videoposts as $videopost)
                 <div class="row" >
                     <div class="col-md-10">
                         <a href="/video-post/{{$videopost->id}}" class="text-info"><h1>{{$videopost->title}}</h1></a>

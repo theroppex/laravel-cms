@@ -15,7 +15,7 @@
                 <img src="img/background.jpg" class="img-responsive" alt="">
             </div>
             <div class="row" style="background-color: white">
-                <div class="col-md-4 text-center">
+                <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-10"><span class="title" style="font-size: 20pt">About us</span></div>
                         <div class="col-md-2"><img src="img/info.png" class="img-responsive"   alt=""></div>
